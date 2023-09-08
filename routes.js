@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const routes = require('express').Router();
 
 const { 
   index , 
@@ -10,15 +9,15 @@ const {
 } = require('./controllers/UserController');
 
 
-router.get('/users', index);
+routes.get('/users', index);
 
-router.get('/users/:id', get);
+routes.get('/users/:id', get);
 
-router.post('/users', create);
+routes.post('/users', create);
 
-router.put('/users/:id', update);
+routes.put('/users/:id', update);
 
-router.delete('/users/:id', destroy);
+routes.delete('/users/:id', destroy);
 
 
-module.exports = router;
+module.exports = routes;
