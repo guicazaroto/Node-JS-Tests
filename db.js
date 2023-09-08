@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+class DB {
+  init() {
+    this.mongoConnection = mongoose.connect('mongodb://localhost:27017/', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  }
+}
 
-
-module.exports = mongoose;
+module.exports = new DB();
