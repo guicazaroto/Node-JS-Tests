@@ -41,7 +41,7 @@ const update = async (req, res) => {
     if (!user) {
       res.status(404).json({ message: 'Usuário não encontrado' });
     } else {
-      res.json(user);
+      res.status(200).json(user);
     }
   } catch (err) {
     res.status(500).json({ error: err.message });

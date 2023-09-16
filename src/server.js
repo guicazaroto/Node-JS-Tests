@@ -17,7 +17,6 @@ class Server {
   routes() {
     this.express.use(require('./routes'));
   }
-
 }
 
 
