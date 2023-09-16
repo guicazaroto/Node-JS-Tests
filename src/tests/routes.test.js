@@ -1,5 +1,5 @@
 const request = require('supertest');
-const server = require('./server');
+const server = require('../server');
 const mongoose = require('mongoose');
 let app = null
 
@@ -37,12 +37,26 @@ describe('Testes da API', () => {
   });
 
 
+  it('Deve retornar um único usuário cadastrado', async () => {
+      const users = await request(app).get('/users');
+      const user = users.body[0];
+      
+      const firstUser = await request(app)
+        .get('/users/' + user.id);
+  
+      expect(firstUser.status).toBe(200);
+      expect(firstUser.body.name).toBe(user.name);
+  });
+
+
   it('Deve atualizar o usuário', async () => {
     const users = await request(app).get('/users');
     const {id } = users.body[0];
 
     const response = await request(app)
-      .put(`/users/${id}`).send({ name: 'new name' });
+      .put(`/users/${id}`)
+      .send({ name: 'new name' });
+
     expect(response.status).toBe(200);
     expect(response.body.name).toBe('new name');
   })
