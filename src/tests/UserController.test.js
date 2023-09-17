@@ -4,8 +4,8 @@ const User = require('../models/User');
 jest.mock('../models/User');
 
 const mockUsers = [
-  { id: '3432423', name: 'Usuário 1', email: 'one@email.com' }, 
-  { id: 't44rew4325', name: 'Usuário 2', email: 'two@email.com' }, 
+  { id: '3432423', name: 'Usuário 1', email: 'one@email.com', password: '321321312' }, 
+  { id: 't44rew4325', name: 'Usuário 2', email: 'two@email.com', password: '321321312' }, 
 ];
 
 describe('UserController', () => {
@@ -94,7 +94,7 @@ describe('UserController', () => {
     expect(res.json).toHaveBeenCalledWith(mockUser);
   });
 
-  it.only('Deve excluir um usuário existente com sucesso', async () => {
+  it('Deve excluir um usuário existente com sucesso', async () => {
     const req = {
       params: { id: 'ID_DO_USUARIO' },
     };
