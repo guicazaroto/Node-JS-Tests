@@ -3,7 +3,7 @@ const User = require('../models/User');
 const index =  async (req, res) => {
   try {
     const users = await User.find({});
-    res.json(users);
+    res.status(200).json(users);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -17,7 +17,7 @@ const get = async (req, res) => {
     if (!user) {
       res.status(404).json({ message: 'Usuário não encontrado' });
     } else {
-      res.json(user);
+      res.status(200).json(user);
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -54,7 +54,7 @@ const destroy = async (req, res) => {
     if (!user) {
       res.status(404).json({ message: 'Usuário não encontrado' });
     } else {
-      res.json({ message: 'Usuário excluído com sucesso' });
+      res.status(200).json({ message: 'Usuário excluído com sucesso' });
     }
   } catch (err) {
     res.status(500).json({ error: err.message });
