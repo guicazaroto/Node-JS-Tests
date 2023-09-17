@@ -111,9 +111,6 @@ describe('UserController', () => {
     expect(User.findByIdAndRemove).toHaveBeenCalledWith('ID_DO_USUARIO');
     expect(res.json).toHaveBeenCalledWith({ message: 'Usuário excluído com sucesso' });
   });
-
-
-
   
 })
   
