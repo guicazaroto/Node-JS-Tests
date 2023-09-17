@@ -1,4 +1,5 @@
 {
+  "name": "Test NodeJs",
   "scripts": {
     "start": "nodemon index.js",
     "test": "jest"
