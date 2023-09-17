@@ -3,6 +3,7 @@
 ### Para rodar o projeto rode:
 
 ```
+>> yarn install
 >> docker-compose up -d
 >> yarn start
 >> yarn test
