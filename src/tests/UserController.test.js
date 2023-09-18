@@ -1,4 +1,4 @@
-const { index, get, create, update, destroy } = require('../controllers/userController');
+const { index, get, create, update, destroy } = require('../controllers/UserController');
 const User = require('../models/User');
 
 jest.mock('../models/User');

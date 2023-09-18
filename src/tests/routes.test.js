@@ -48,6 +48,7 @@ describe('Teste de Integração', () => {
     
         expect(firstUser.status).toBe(200);
         expect(firstUser.body.name).toBe(user.name);
+        expect(firstUser.body.email).toBe(user.email);
     });
 
 
@@ -57,10 +58,11 @@ describe('Teste de Integração', () => {
 
       const response = await request(app)
         .put(`/users/${id}`)
-        .send({ name: 'new name' });
+        .send({ name: 'new name', email: 'newemail@email.com' });
 
       expect(response.status).toBe(200);
       expect(response.body.name).toBe('new name');
+      expect(response.body.email).toBe('newemail@email.com');
     })
 
     it('Deve excluir o usuário', async () => {
