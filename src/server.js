@@ -1,6 +1,6 @@
 const express = require('express');
 const DB = require('./db'); 
-
+const cors = require('cors');
 
 class Server {
   constructor() {
@@ -12,6 +12,7 @@ class Server {
 
   middlewares() {
     this.express.use(express.json());
+    this.express.use(cors());
   }
 
   routes() {
