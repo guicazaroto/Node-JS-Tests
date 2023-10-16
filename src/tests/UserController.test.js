@@ -42,6 +42,23 @@ describe('UserController', () => {
     expect(res.json).toHaveBeenCalledWith(mockUsers[0]);
   });
 
+  it('Deve retornar um erro 404 se o usuário não existir', async () => {
+    User.findById.mockResolvedValue(null);
+
+    const req = { params: { id: 'ID_DO_USUÁRIO' } };
+    const res = {
+      json: jest.fn(),
+      status: jest.fn().mockReturnThis(),
+      setHeader: jest.fn(),
+
+    };
+
+    await get(req, res);
+
+    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.json).toHaveBeenCalledWith({ message: 'Usuário não encontrado' });
+  })
+
   it('Deve criar um novo usuário', async () => {
     const req = {
       body: mockUsers[0], 

@@ -51,6 +51,12 @@ describe('Teste de Integração', () => {
         expect(firstUser.body.email).toBe(user.email);
     });
 
+    it('Deve retornar um erro 404 se o usuário não existir', async () => {
+      const response = await request(app).get('/users/64fa67a5612b41047fcceb5d');
+      expect(response.status).toBe(404);
+      expect(response.body.message).toBe('Usuário não encontrado');
+    })
+
 
     it('Deve atualizar o usuário', async () => {
       const users = await request(app).get('/users');
