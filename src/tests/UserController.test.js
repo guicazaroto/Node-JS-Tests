@@ -16,6 +16,7 @@ describe('UserController', () => {
     const res = {
       json: jest.fn(),
       status: jest.fn().mockReturnThis(),
+      setHeader: jest.fn(),
     };
 
     await index(req, res);
@@ -31,6 +32,8 @@ describe('UserController', () => {
     const res = {
       json: jest.fn(),
       status: jest.fn().mockReturnThis(),
+      setHeader: jest.fn(),
+
     };
 
     await get(req, res);
@@ -46,6 +49,8 @@ describe('UserController', () => {
     const res = {
       json: jest.fn(),
       status: jest.fn().mockReturnThis(),
+      setHeader: jest.fn(),
+
     };
     const saveMock = jest.fn(); 
     
@@ -74,6 +79,8 @@ describe('UserController', () => {
     const res = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
+      setHeader: jest.fn(),
+
     };
 
     const mockUser = {
@@ -101,6 +108,7 @@ describe('UserController', () => {
     const res = {
       status: jest.fn().mockReturnThis(),
       json: jest.fn(),
+      setHeader: jest.fn(),
     };
 
     User.findByIdAndRemove.mockResolvedValue(mockUsers[0]);
