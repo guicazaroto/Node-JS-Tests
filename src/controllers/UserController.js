@@ -55,7 +55,7 @@ const destroy = async (req, res) => {
     if (!user) {
       apiResponse(res, 404, { message: 'Usuário não encontrado' });
     } else {
-      apiResponse(res, 200, user);
+      apiResponse(res, 200, { message: 'Usuário excluído com sucesso' });
     }
   } catch (err) {
     apiResponse(res, 500, { error: err.message });
